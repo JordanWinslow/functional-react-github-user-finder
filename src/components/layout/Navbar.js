@@ -20,7 +20,7 @@ const gitHubLogo = (
 
 const NavigationHeader = styled.nav`
   padding-left: 10px;
-  background: rgba(255, 100, 21, 1);
+  background: #10bd84;
   height: 70px;
   color: #fff1e9;
   display: grid;
@@ -39,10 +39,11 @@ const NavigationHeader = styled.nav`
     padding-left: 10px;
     justify-self: start;
     align-self: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
     cursor: default;
   }
   #navItems {
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
     padding-right: 40px;
     justify-self: end;
     align-self: center;
@@ -58,6 +59,7 @@ const NavigationHeader = styled.nav`
     transition-duration: 0.3s;
   }
   li:hover {
+    text-shadow: none;
     color: #00291c;
     cursor: pointer;
   }

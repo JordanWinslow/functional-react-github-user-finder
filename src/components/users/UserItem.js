@@ -6,14 +6,16 @@ import PropTypes from "prop-types"
 const UserCard = styled.div`
   background: #10bd84;
   display: grid;
-  grid-template-rows: 1fr 0.5fr 0.5fr;
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+  grid-template-rows: 0.5fr 0.5fr 0.5fr;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 `
 const UserAvatar = styled.div`
   background-image: url(${props => props.url});
   background-position: center;
   background-size: 100px;
   background-repeat: no-repeat;
+  border: 5px outset rgba(255, 100, 21, 1);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
   margin: 40px 0 20px;
   width: 100px;
   height: 100px;
@@ -22,7 +24,7 @@ const UserAvatar = styled.div`
 `
 const UserName = styled.h5`
   color: white;
-  text-shadow: 1px 3px 4px #000000;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
   justify-self: center;
   cursor: default;
 `
@@ -32,7 +34,7 @@ const DetailsButton = styled.button`
   height: 40px;
   background: #00291c;
   color: #fff1e9;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 3px;
   transition-duration: 0.3s;
@@ -46,8 +48,10 @@ const DetailsButton = styled.button`
     color: inherit;
   }
   :hover {
-    background: #fff1e9;
-    color: #00291c;
+    transform: translateY(-4px);
+    background: rgba(255, 100, 21, 1);
+    text-shadow: 0px 1px 2px #000000;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     cursor: pointer;
   }
 `
