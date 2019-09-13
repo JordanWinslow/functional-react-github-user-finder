@@ -1,42 +1,61 @@
 @import url("https://fonts.googleapis.com/css?family=Karla|Rubik:300,500&display=swap");
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 body {
-  background: rgb(0, 82, 55, .1);
-  font-family: "Karla", sans-serif;
-  font-size: 20px;
-  letter-spacing: 1.5px;
+	background: rgb(0, 82, 55, 0.1);
+	font-family: "Karla", sans-serif;
+	font-size: 20px;
+	letter-spacing: 1.5px;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: "Rubik", sans-serif;
-  letter-spacing: 3px;
+	font-family: "Rubik", sans-serif;
+	letter-spacing: 3px;
 }
 h1 {
-  font-size: 60px;
+	font-size: 60px;
 }
 h2 {
-  font-size: 42px;
+	font-size: 42px;
 }
 h3 {
-  font-size: 32px;
+	font-size: 32px;
 }
 h4 {
-  font-size: 24px;
+	font-size: 24px;
 }
 h5 {
-  font-size: 20px;
+	font-size: 20px;
 }
 p.large {
-  font-size: 32px;
-  letter-spacing: 0.5px;
+	font-size: 32px;
+	letter-spacing: 0.5px;
 }
 p.medium {
-  font-size: 24px;
-  letter-spacing: 1px;
+	font-size: 24px;
+	letter-spacing: 1px;
 }
+/* BEGIN ALERT STYLING */
+.danger {
+	background-color: crimson;
+}
+.success {
+	background-color: chartreuse;
+}
+.fadeOut {
+	animation: fadeOut 0.5s ease-in;
+}
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/* END ALERT STYLING */

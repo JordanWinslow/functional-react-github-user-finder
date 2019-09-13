@@ -15,6 +15,8 @@ const InputText = styled.input`
 	padding: 0.5rem 0 0.5rem 10px;
 	background: rgba(255, 255, 255, 0.9);
 	color: #10bd84;
+	outline: none;
+	border-radius: 15px;
 	::placeholder {
 		color: #10bd84;
 	}
@@ -30,7 +32,10 @@ const SubmitButton = styled.input`
 	color: #fff1e9;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 	text-shadow: 0px 1px 2px #000000;
+	outline: none;
+	border-radius: 15px;
 	transition-duration: 0.2s;
+
 	:hover {
 		transform: translateY(-1px);
 		cursor: pointer;
@@ -51,6 +56,8 @@ const ClearButton = styled.button`
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 	text-shadow: 0px 1px 2px #000000;
 	transition-duration: 0.2s;
+	border-radius: 15px;
+
 	:hover {
 		transform: translateY(-1px);
 		cursor: pointer;

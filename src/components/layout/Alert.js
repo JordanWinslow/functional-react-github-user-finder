@@ -1,33 +1,32 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
-const messageType = type => {
-	if (type === "danger") {
-		return `
-   background: rgba(100, 20, 20, 1);
-   `
-	}
-}
-
 const AlertBox = styled.div`
-	margin: 0 5vw;
+	padding: 0.5rem 0;
 	text-align: center;
 	color: white;
-	${messageType(alert.type)}
+	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+	animation: fadeInFromNone 0.5s ease-in;
+
+	@keyframes fadeInFromNone {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
 `
 
 const Alert = ({ alert }) => {
 	return (
 		alert !== null && (
-			<AlertBox type={alert.type}>
+			<AlertBox className={alert.type}>
 				<p>{alert.message}</p>
 			</AlertBox>
 		)
 	)
 }
 
-Alert.propTypes = {
-	alert: PropTypes.object.isRequired
-}
 export default Alert

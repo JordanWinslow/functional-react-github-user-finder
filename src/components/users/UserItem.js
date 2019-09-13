@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 // http://paletton.com/#uid=237050ktmC4MF7KJnfqatSW2IHf
 const UserCard = styled.div`
 	background: #10bd84;
+	border-radius: 20px;
 	display: grid;
 	grid-template-rows: 0.5fr 0.5fr 0.5fr;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);

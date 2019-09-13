@@ -41,10 +41,17 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 	}
+
 	clearUsers = () => this.setState({ loading: false, users: [] })
+
 	setAlert = (message, type) => {
 		this.setState({ alert: { message, type } })
+		// MESSAGE IS REMOVED AFTER 4 SECONDS
+		setTimeout(() => {
+			this.setState({ alert: null })
+		}, 4000)
 	}
+
 	render() {
 		return (
 			<React.Fragment>
