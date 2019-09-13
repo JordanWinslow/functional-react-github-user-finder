@@ -39,6 +39,7 @@ const SubmitButton = styled.input`
 `
 const ClearButton = styled.button`
 	font-family: "Karla", sans-serif;
+	margin-top: -20px;
 	margin-bottom: 20px;
 	padding: 0.5rem 0;
 	font-size: 1.2rem;
@@ -59,21 +60,33 @@ const ClearButton = styled.button`
 
 class Search extends Component {
 	state = {
-		searchText: ""
+		searchText: "",
+		clearUsersButton: false
 	}
 	onChange = e => {
 		this.setState({ [e.target.name]: e.target.value }) // e.target.name is the InputText name="searchText" and e.target.value is InputText value="this.state.searchText"
 	} // we put [e.target.name] in brackets as an HTML selector to grab the name value from the input form
-	onSubmit = searchText => {
+	onSearch = searchText => {
 		searchText.preventDefault() // to prevent page reload on submit & to allow us to store the value to a variable
-		this.props.userSearch(this.state.searchText) // pass the submitted text UP into a prop called "userSearch" which also has a method in the App component. This is to demonstrate the unnecessary complexity added by using classes instead of functional React hoook based components
+		if (this.state.searchText === "") {
+			this.props.setAlert(
+				"Please enter some text before searching 😸",
+				"danger"
+			)
+		} else {
+			this.props.userSearch(this.state.searchText) // pass the submitted text UP into a prop called "userSearch" which also has a method in the App component. This is to demonstrate the unnecessary complexity added by using classes instead of functional React hoook based components
 
-		// THIS IS WHERE THE MAGIC HAPPENS
-		this.setState({ searchText: "" }) // clear the search
+			// THIS IS WHERE THE MAGIC HAPPENS
+			this.setState({ searchText: "", clearUsersButton: true }) // clear the search
+		}
+	}
+	clearUsers = () => {
+		this.setState({ searchText: "", clearUsersButton: false })
+		this.props.clearUsers()
 	}
 	render() {
 		return (
-			<FormContainer onSubmit={this.onSubmit}>
+			<FormContainer onSubmit={this.onSearch}>
 				<InputText
 					type="text"
 					name="searchText"
@@ -81,8 +94,13 @@ class Search extends Component {
 					value={this.state.searchText}
 					onChange={this.onChange}
 				/>
-				<SubmitButton type="submit" value="🔍Search" />
-				<ClearButton onClick={this.props.clearUsers}>Clear</ClearButton>
+				<SubmitButton type="submit" value="🔍Search"></SubmitButton>
+				{this.state.clearUsersButton ? (
+					<ClearButton type="button" onClick={this.clearUsers}>
+						Clear
+					</ClearButton>
+				) : null}
+				{/*WE MUST MAKE BUTTON type="button" OR ELSE IT WILL SUBMIT THE FORM AGAIN, EVEN WITH NO onSubmit DECLARATION!*/}
 			</FormContainer>
 		)
 	}
@@ -90,7 +108,8 @@ class Search extends Component {
 
 Search.propTypes = {
 	userSearch: PropTypes.func.isRequired,
-	clearUsers: PropTypes.func.isRequired
+	clearUsers: PropTypes.func.isRequired,
+	setAlert: PropTypes.func.isRequired
 }
 
 export default Search
