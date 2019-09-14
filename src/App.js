@@ -1,10 +1,12 @@
 import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import axios from "axios"
 import "./App.css"
 import Navbar from "./components/layout/Navbar"
 import Alert from "./components/layout/Alert"
 import Search from "./components/users/Search"
 import UserGrid from "./components/users/UserGrid"
+import About from "./components/pages/About"
 // import StyleGuide from "./components/StyleGuide"
 
 class App extends React.Component {
@@ -54,17 +56,31 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<React.Fragment>
+			<Router>
 				<Navbar />
 				{/*VIEW STYLE GUIDE WITH <StyleGuide />*/}
 				<Alert alert={this.state.alert} />
-				<Search
-					clearUsers={this.clearUsers}
-					userSearch={this.userSearch}
-					setAlert={this.setAlert}
-				/>
-				<UserGrid loading={this.state.loading} users={this.state.users} />
-			</React.Fragment>
+				<Switch>
+					<Route
+						exact
+						path="/"
+						render={props => (
+							<React.Fragment>
+								<Search
+									clearUsers={this.clearUsers}
+									userSearch={this.userSearch}
+									setAlert={this.setAlert}
+								/>
+								<UserGrid
+									loading={this.state.loading}
+									users={this.state.users}
+								/>
+							</React.Fragment>
+						)}
+					/>
+					<Route exact path="/about" component={About} />
+				</Switch>
+			</Router>
 		)
 	}
 }

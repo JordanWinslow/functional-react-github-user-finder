@@ -34,11 +34,11 @@ const SubmitButton = styled.input`
 	text-shadow: 0px 1px 2px #000000;
 	outline: none;
 	border-radius: 15px;
+	cursor: pointer;
 	transition-duration: 0.2s;
 
 	:hover {
 		transform: translateY(-1px);
-		cursor: pointer;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
 	}
 `
@@ -57,10 +57,10 @@ const ClearButton = styled.button`
 	text-shadow: 0px 1px 2px #000000;
 	transition-duration: 0.2s;
 	border-radius: 15px;
+	cursor: pointer;
 
 	:hover {
 		transform: translateY(-1px);
-		cursor: pointer;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
 	}
 `
