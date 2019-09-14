@@ -43,6 +43,9 @@ p.medium {
 	font-size: 24px;
 	letter-spacing: 1px;
 }
+ul {
+	list-style-type: none;
+}
 /* BEGIN ALERT STYLING */
 .danger {
 	background-color: crimson;
