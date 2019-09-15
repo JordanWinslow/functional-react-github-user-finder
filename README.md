@@ -1,5 +1,3 @@
-<img src="https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png"></img>
-
 # Fully Responsive, Dynamic React.js App With CSS Animations
 
 ### Key features: 
@@ -24,7 +22,6 @@ I purposely used class-based React components in this project to demonstrate som
 
 ### Mobile-First - Phone Views
 ![About Page Phone View](https://i.postimg.cc/Fzb9YhhH/About-Phone-View.png "About Page") ![User Details Page Phone View](https://i.postimg.cc/Z5bqyvBt/Jordan-Phone-View.png "User Page")
-
 <ul>
 <li>https://i.postimg.cc/YSjqdczd/Zach-Phone-View.png</li>
 <li>https://i.postimg.cc/Z5bqyvBt/Jordan-Phone-View.png</li>
@@ -32,7 +29,7 @@ I purposely used class-based React components in this project to demonstrate som
 </ul>
 
 ### Tablet Views
-<img src="https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png"></img>
+![About Page Tablet View](https://i.postimg.cc/7hSLSgnD/About-Tablet-View.png "About Page") ![User Details Page Tablet View](https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png "User Page")
 <ul>
 <li>https://i.postimg.cc/7hSLSgnD/About-Tablet-View.png</li>
 <li>https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png</li>
@@ -40,7 +37,7 @@ I purposely used class-based React components in this project to demonstrate som
 </ul>
 
 ### Desktop Views
-<img src="https://i.postimg.cc/nzDVtv57/Jordan-Desktop-View.png"></img>
+![About Page Desktop View](https://i.postimg.cc/zX5z9Hkb/About-Desktop-View.png "About Page") ![User Details Page Tablet View](https://i.postimg.cc/nzDVtv57/Jordan-Desktop-View.png "User Page")
 <ul>
 <li>https://i.postimg.cc/zX5z9Hkb/About-Desktop-View.png</li>
 <li>https://i.postimg.cc/nzDVtv57/Jordan-Desktop-View.png</li>
