@@ -16,6 +16,9 @@ This project utilizes class-based React.js components with lifestyle methods, st
 <p>
 I purposely used class-based React components in this project to demonstrate some of the known problems with class inheritance in JavaScript. There are a few instances where I could have refactored some of the endless ".this" statements into a 
 </p>
+
+# Screenshots
+
 ### Mobile-First - Phone Views
 <ul>
 <li>https://i.postimg.cc/YSjqdczd/Zach-Phone-View.png</li>
