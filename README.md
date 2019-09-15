@@ -2,12 +2,12 @@
 
 ### Key features: 
 <ul>
-  <li>Fully Responsive Website Utilizing vw, vh @media Queries & CSS Grid System to <strong>Adapt to any Size of User Device or During Window Resize</strong></li>
+  <li><strong>Fully Responsive Website</strong> Utilizing vw, vh @media Queries & CSS Grid System to <strong>Adapt to any Size of User Device or During Window Resize</strong></li>
   <li><strong>React Router:</strong> (Retains State During Page Change, and Does not Require Screen Refresh)</li>
   <li><strong>Conditional Page Rendering</strong>: Descriptive Headers Such as "Bio," "Website," Icons, etc. Only Display if User Actually Has a Bio or Website.</li>
   <li><strong>Fully Interactive</strong>: Virtually Every Element is Animated on User Interaction (In Tasteful Ways to Enhance User Experience Without Overwhelming Them)</li>
-  <li>Fully Responsive Text & Grid System</li>
-  <li>Fully Responsive Text & Grid System</li>
+  <li><strong>Cutting Edge CSS</strong>: Showcasing the Latest Technologies Offered by CSS Such as Gaussian Blur on Backgrounds Behind Elements</li>
+  <li><strong>Blazing Fast</strong></li>
 </ul>
 
 ### Detailed Description:
