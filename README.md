@@ -20,6 +20,7 @@ I purposely used class-based React components in this project to demonstrate som
 # Screenshots
 
 ### Mobile-First - Phone Views
+<img src="https://i.postimg.cc/Z5bqyvBt/Jordan-Phone-View.png"></img>
 <ul>
 <li>https://i.postimg.cc/YSjqdczd/Zach-Phone-View.png</li>
 <li>https://i.postimg.cc/Z5bqyvBt/Jordan-Phone-View.png</li>
