@@ -2,6 +2,7 @@
 
 ### Key features: 
 <ul>
+  <li><strong>No Bootstrap, No Premade CSS.</strong> 100% From-Scratch CSS Leveraging the Power of the Styled-Components Library for Future-Proof, Maintainable Code
   <li><strong>Fully Responsive Website</strong> Utilizing vw, vh @media Queries & CSS Grid System to <strong>Adapt to any Size of User Device or During Window Resize</strong></li>
   <li><strong>React Router:</strong> (Retains State During Page Change, and Does not Require Screen Refresh)</li>
   <li><strong>Conditional Page Rendering</strong>: Descriptive Headers Such as "Bio," "Website," Icons, etc. Only Display if User Actually Has a Bio or Website.</li>
