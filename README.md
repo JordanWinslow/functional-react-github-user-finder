@@ -1,3 +1,5 @@
+<img src="https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png"></img>
+
 # Fully Responsive, Dynamic React.js App With CSS Animations
 
 ### Key features: 
@@ -28,6 +30,7 @@ I purposely used class-based React components in this project to demonstrate som
 </ul>
 
 ### Tablet Views
+<img src="https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png"></img>
 <ul>
 <li>https://i.postimg.cc/7hSLSgnD/About-Tablet-View.png</li>
 <li>https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png</li>
@@ -35,6 +38,7 @@ I purposely used class-based React components in this project to demonstrate som
 </ul>
 
 ### Desktop Views
+<img src="https://i.postimg.cc/nzDVtv57/Jordan-Desktop-View.png"></img>
 <ul>
 <li>https://i.postimg.cc/zX5z9Hkb/About-Desktop-View.png</li>
 <li>https://i.postimg.cc/nzDVtv57/Jordan-Desktop-View.png</li>
