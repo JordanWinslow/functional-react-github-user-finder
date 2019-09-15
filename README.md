@@ -1,4 +1,40 @@
-### React GitHub User Finder WebApp
-<a href="https://postimg.cc/hhyRmj6c" target="_blank"><img src="https://i.postimg.cc/hhyRmj6c/About-Desktop-View.png" alt="About-Desktop-View"/></a> <a href="https://postimg.cc/0KQg3R6T" target="_blank"><img src="https://i.postimg.cc/0KQg3R6T/About-Phone-View.png" alt="About-Phone-View"/></a> <a href="https://postimg.cc/GThrCTfS" target="_blank"><img src="https://i.postimg.cc/GThrCTfS/About-Tablet-View.png" alt="About-Tablet-View"/></a> <a href="https://postimg.cc/WFscGJsb" target="_blank"><img src="https://i.postimg.cc/WFscGJsb/Jordan-Desktop-View.png" alt="Jordan-Desktop-View"/></a><br/><br/>
-<a href="https://postimg.cc/56rJh0Sn" target="_blank"><img src="https://i.postimg.cc/56rJh0Sn/Jordan-Phone-View.png" alt="Jordan-Phone-View"/></a> <a href="https://postimg.cc/PC8HTj6h" target="_blank"><img src="https://i.postimg.cc/PC8HTj6h/Jordan-Tablet-View.png" alt="Jordan-Tablet-View"/></a> <a href="https://postimg.cc/R6G5XV01" target="_blank"><img src="https://i.postimg.cc/R6G5XV01/Zach-Desktop-View.png" alt="Zach-Desktop-View"/></a> <a href="https://postimg.cc/cKySJbj3" target="_blank"><img src="https://i.postimg.cc/cKySJbj3/Zach-Phone-View.png" alt="Zach-Phone-View"/></a><br/><br/>
-<a href="https://postimg.cc/Z98hvLtM" target="_blank"><img src="https://i.postimg.cc/Z98hvLtM/Zach-Tablet-View.png" alt="Zach-Tablet-View"/></a> 
+<img alt="Jordan Winslow Logo" src="https://gdurl.com/q7oI" />
+# Fully Responsive, Dynamic React.js App With CSS Animations
+
+### Key features: 
+<ul>
+  <li>Fully Responsive Website Utilizing vw, vh @media Queries & CSS Grid System to <strong>Adapt to any Size of User Device or During Window Resize</strong></li>
+  <li><strong>React Router:</strong> (Retains State During Page Change, and Does not Require Screen Refresh)</li>
+  <li><strong>Conditional Page Rendering</strong>: Descriptive Headers Such as "Bio," "Website," Icons, etc. Only Display if User Actually Has a Bio or Website.</li>
+  <li><strong>Fully Interactive</strong>: Virtually Every Element is Animated on User Interaction (In Tasteful Ways to Enhance User Experience Without Overwhelming Them)</li>
+  <li>Fully Responsive Text & Grid System</li>
+  <li>Fully Responsive Text & Grid System</li>
+
+### Detailed Description:
+<p>
+This project utilizes class-based React.js components with lifestyle methods, state management & higher order functions to dynamically render user profile information from the GitHub API onto a fully responsive CSS grid that is styled with styled-components and animated with CSS keyframes and modern transitional hover parameters.
+</p>
+<p>
+I purposely used class-based React components in this project to demonstrate some of the known problems with class inheritance in JavaScript. There are a few instances where I could have refactored some of the endless ".this" statements into a 
+</p>
+
+### Mobile-First - Phone Views
+<ul>
+<li>https://i.postimg.cc/YSjqdczd/Zach-Phone-View.png</li>
+<li>https://i.postimg.cc/Z5bqyvBt/Jordan-Phone-View.png</li>
+<li>https://i.postimg.cc/Fzb9YhhH/About-Phone-View.png</li>
+</ul>
+
+### Tablet Views
+<ul>
+<li>https://i.postimg.cc/7hSLSgnD/About-Tablet-View.png</li>
+<li>https://i.postimg.cc/6pMpV6n7/Jordan-Tablet-View.png</li>
+<li>https://i.postimg.cc/GpN3NMMd/Zach-Tablet-View.png</li>
+</ul>
+
+### Desktop Views
+<ul>
+<li>https://i.postimg.cc/zX5z9Hkb/About-Desktop-View.png</li>
+<li>https://i.postimg.cc/nzDVtv57/Jordan-Desktop-View.png</li>
+<li>https://i.postimg.cc/mkWLZPfn/Zach-Desktop-View.png</li>
+</ul>
