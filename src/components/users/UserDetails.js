@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import spinnerImage from "../layout/spinner.gif"
+import Repos from "../repos/Repos"
 
 const Spinner = styled.img`
 	width: 200px;
@@ -44,6 +45,28 @@ const UserModal = styled.div`
 		}
 	}
 `
+const ReturnButton = styled.button`
+	font-size: 18px;
+	text-align: center;
+	padding: 10px 20px;
+	width: 180px;
+	background: white;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	box-shadow: 0px 2px 4px gray;
+	transition: 0.3s ease-in;
+	a {
+		color: black;
+	}
+	:hover {
+		background: black;
+		a {
+			color: white;
+		}
+	}
+`
+
 const BasicInfo = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -109,6 +132,7 @@ const Badge = styled.div`
 class UserDetails extends Component {
 	componentDidMount() {
 		this.props.getUserDetails(this.props.match.params.login) // "match.params" grabs the user name from the URL
+		this.props.getUserRepos(this.props.match.params.login)
 	}
 
 	render() {
@@ -128,11 +152,13 @@ class UserDetails extends Component {
 			hireable
 		} = this.props.userDetails // destructure the API returned object into keys/values
 
-		const { loading } = this.props
+		const { loading, userRepos } = this.props
 		if (loading) return <Spinner src={spinnerImage} alt="Loading..." />
 		return (
 			<React.Fragment>
-				<Link to="/">Back to Search</Link>
+				<ReturnButton>
+					<Link to="/">Back to Search</Link>
+				</ReturnButton>
 				<UserModal>
 					<BasicInfo>
 						<h1>{name}</h1>
@@ -176,11 +202,11 @@ class UserDetails extends Component {
 						</ul>
 					</ExtendedInfo>
 					<center>
-						<VisitProfileButton>
-							<p>
-								<a href={html_url}>GitHub Profile</a>
-							</p>
-						</VisitProfileButton>
+						<a href={html_url} style={{ color: "white" }}>
+							<VisitProfileButton>
+								<p>GitHub Profile</p>
+							</VisitProfileButton>
+						</a>
 					</center>
 					<BadgeContainer>
 						<Badge background="aquamarine">Followers: {followers}</Badge>
@@ -191,6 +217,8 @@ class UserDetails extends Component {
 						<Badge background="azure">Public Gists: {public_gists}</Badge>
 					</BadgeContainer>
 				</UserModal>
+				<br />
+				<Repos repos={userRepos} />
 			</React.Fragment>
 		)
 	}
@@ -199,6 +227,8 @@ class UserDetails extends Component {
 UserDetails.propTypes = {
 	loading: PropTypes.bool.isRequired,
 	userDetails: PropTypes.object.isRequired,
-	getUserDetails: PropTypes.func.isRequired
+	userRepos: PropTypes.array.isRequired,
+	getUserDetails: PropTypes.func.isRequired,
+	getUserRepos: PropTypes.func.isRequired
 }
 export default UserDetails

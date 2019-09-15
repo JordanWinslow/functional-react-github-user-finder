@@ -9,6 +9,9 @@ body {
 	font-size: 20px;
 	letter-spacing: 1.5px;
 }
+button {
+	outline: none;
+}
 a {
 	text-decoration: none;
 }
