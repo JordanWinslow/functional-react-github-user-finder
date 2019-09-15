@@ -1,4 +1,3 @@
-<img alt="Jordan Winslow Logo" src="https://gdurl.com/q7oI" />
 # Fully Responsive, Dynamic React.js App With CSS Animations
 
 ### Key features: 
