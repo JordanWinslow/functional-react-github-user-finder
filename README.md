@@ -10,6 +10,7 @@
   <li><strong>Fully Interactive</strong>: Virtually Every Element is Animated on User Interaction (In Tasteful Ways to Enhance User Experience Without Overwhelming Them)</li>
   <li>Fully Responsive Text & Grid System</li>
   <li>Fully Responsive Text & Grid System</li>
+</ul>
 
 ### Detailed Description:
 <p>
