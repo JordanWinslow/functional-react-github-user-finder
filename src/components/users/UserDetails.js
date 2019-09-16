@@ -1,10 +1,11 @@
-import React, { Component } from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import spinnerImage from "../layout/spinner.gif"
 import Repos from "../repos/Repos"
 
+/***** STYLING *****/
 const Spinner = styled.img`
 	width: 200px;
 	display: block;
@@ -30,7 +31,6 @@ const UserModal = styled.div`
 		color: rgba(255, 100, 21, 1);
 		cursor: pointer;
 	}
-
 	@media (max-width: 800px) {
 		grid-template-columns: 1fr;
 		p,
@@ -66,7 +66,6 @@ const ReturnButton = styled.button`
 		}
 	}
 `
-
 const BasicInfo = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -85,7 +84,6 @@ const ExtendedInfo = styled.div`
 	background: rgba(0, 0, 0, 0.4);
 	border-radius: 20px;
 `
-
 const VisitProfileButton = styled.button`
 	margin-top: 2vw;
 	background: #00291c;
@@ -129,13 +127,19 @@ const Badge = styled.div`
 	box-shadow: 0px 2px 3px #000000;
 `
 
-class UserDetails extends Component {
-	componentDidMount() {
-		this.props.getUserDetails(this.props.match.params.login) // "match.params" grabs the user name from the URL
-		this.props.getUserRepos(this.props.match.params.login)
-	}
+const UserDetails = props => {
 
-	render() {
+	useEffect(
+		() => {
+			// When we run "getUserDetails" or "getUserRepos" they cause the component to update.
+			// Whenever a component updates, it runs useEffect, creating an infinite loop.
+			// Therefore we must supply a configuration array as a parameter.
+			props.getUserDetails(props.match.params.login) // "match.params" grabs the user name from the URL and is an object of React Router
+			props.getUserRepos(props.match.params.login)
+		},
+		[] /* This empty array tells useEffect to update only when a parameter in the array updates. If no parameter is supplied it runs only once.*/
+	)
+
 		const {
 			name,
 			avatar_url,
@@ -150,10 +154,11 @@ class UserDetails extends Component {
 			public_repos,
 			public_gists,
 			hireable
-		} = this.props.userDetails // destructure the API returned object into keys/values
+		} = props.userDetails // destructure the API returned object into keys/values
 
-		const { loading, userRepos } = this.props
+		const { loading, userRepos } = props
 		if (loading) return <Spinner src={spinnerImage} alt="Loading..." />
+
 		return (
 			<React.Fragment>
 				<ReturnButton>
@@ -222,7 +227,6 @@ class UserDetails extends Component {
 			</React.Fragment>
 		)
 	}
-}
 
 UserDetails.propTypes = {
 	loading: PropTypes.bool.isRequired,
