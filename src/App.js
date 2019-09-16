@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import axios from "axios"
 import "./App.css"
@@ -10,72 +10,74 @@ import UserGrid from "./components/users/UserGrid"
 import About from "./components/pages/About"
 // import StyleGuide from "./components/StyleGuide"
 
-class App extends React.Component {
-  state = {
-    users: [],
-    userDetails: {}, // on clicking detail button, loads current user's info
-    userRepos: [],
-    clearUsersButton: false, // clear button displays on true
-    loading: false, // animated loading icon displays on true
-    alert: null // alert displays {message: "message", type: "type"}
-  }
+const App = () => {
 
-  userSearch = async text => {
+  const [users, setUsers] = useState([])
+  const [userDetails, setUserDetails] = useState({}) // on clicking detail button, loads current user's info
+ const [userRepos, setUserRepos] = useState([]) // clear search button displays on true
+  const [clearUsersButton, setClearUsersButton] = useState(false) // animated loading icon displays on true
+  const [alert, setAlert] = useState(null) // alert displays {message: "message", type: "type"}
+  const [loading, setLoading] = useState(false)
+  const userSearch = async text => {
     // THIS TEXT IS RECEIVED FROM THE SEARCH COMPONENT AND PASSED UP THROUGH this.props.userSearch
-    this.setState({ users: [], loading: true })
+    setUsers([])
+    setLoading(true)
     await axios
       .get(
         `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
       )
       .then(response => {
-        this.setState({ users: response.data.items, loading: false })
+        setUsers(response.data.items)
+        setLoading(false)
       })
-      .catch(error => this.setAlert(error, "danger")) // report GitHub Server Error to Top of User Screen if Any
-    this.setState({ clearUsersButton: true })
+      .catch(error => createAlert(error, "danger")) // report GitHub Server Error to Top of User Screen if Any
+    setClearUsersButton(true)
   }
 
-  clearUsers = () => this.setState({ loading: false, users: [] })
+  const clearUsers = () => {
+    setLoading(false)
+    setUsers([])
+  }
 
-  setAlert = (message, type) => {
-    this.setState({ alert: { message, type } })
+  const createAlert = (message, type) => {
+    setAlert({ message, type })
     // MESSAGE IS REMOVED AFTER 4 SECONDS
     setTimeout(() => {
-      this.setState({ alert: null })
+      setAlert(null)
     }, 4000)
   }
 
-  getUserDetails = async username => {
-    this.setState({ loading: true })
-
+  const getUserDetails = async username => {
+    setLoading(true)
     await axios
       .get(
         `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
       )
       .then(response => {
-        this.setState({ userDetails: response.data, loading: false })
+        setUserDetails(response.data)
+        setLoading(false)
       })
-      .catch(error => this.setAlert(error, "danger")) // report GitHub Server Error to Top of User Screen if Any
+      .catch(error => createAlert(error, "danger")) // report GitHub Server Error to Top of User Screen if Any
   }
 
-  getUserRepos = async username => {
-    this.setState({ loading: true })
-
+  const getUserRepos = async username => {
+    setLoading(true)
     await axios
       .get(
         `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
       )
       .then(response => {
-        this.setState({ userRepos: response.data, loading: false })
+        setUserRepos(response.data)
+        setLoading(false)
       })
-      .catch(error => this.setAlert(error, "danger")) // report GitHub Server Error to Top of User Screen if Any
+      .catch(error => createAlert(error, "danger")) // report GitHub Server Error to Top of User Screen if Any
   }
 
-  render() {
     return (
       <Router>
         <Navbar />
         {/*VIEW STYLE GUIDE WITH <StyleGuide />*/}
-        <Alert alert={this.state.alert} />
+        <Alert alert={alert} />
         <Switch>
           <Route
             exact
@@ -83,14 +85,14 @@ class App extends React.Component {
             render={props => (
               <React.Fragment>
                 <Search
-                  clearUsers={this.clearUsers}
-                  clearUsersButton={this.state.clearUsersButton}
-                  userSearch={this.userSearch}
-                  setAlert={this.setAlert}
+                  clearUsers={clearUsers}
+                  clearUsersButton={clearUsersButton}
+                  userSearch={userSearch}
+                  setAlert={createAlert}
                 />
                 <UserGrid
-                  loading={this.state.loading}
-                  users={this.state.users}
+                  loading={loading}
+                  users={users}
                 />
               </React.Fragment>
             )}
@@ -102,11 +104,11 @@ class App extends React.Component {
             render={props => (
               <UserDetails
                 {...props}
-                getUserDetails={this.getUserDetails}
-                userDetails={this.state.userDetails}
-                getUserRepos={this.getUserRepos}
-                userRepos={this.state.userRepos}
-                loading={this.state.loading}
+                getUserDetails={getUserDetails}
+                userDetails={userDetails}
+                getUserRepos={getUserRepos}
+                userRepos={userRepos}
+                loading={loading}
               />
             )}
           />
@@ -114,6 +116,5 @@ class App extends React.Component {
       </Router>
     )
   }
-}
 
 export default App
