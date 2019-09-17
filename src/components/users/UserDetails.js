@@ -1,9 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useContext } from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import spinnerImage from "../layout/spinner.gif"
 import Repos from "../repos/Repos"
+import GithubContext from "../../context/github/githubContext"
 
 /***** STYLING *****/
 const Spinner = styled.img`
@@ -173,6 +174,9 @@ const Badge = styled.div`
 `
 
 const UserDetails = props => {
+	const githubContext = useContext(GithubContext)
+	const { getUserDetails, userDetails, loading } = githubContext
+
 	useEffect(
 		() => {
 			// When we run "getUserDetails" or "getUserRepos" they cause the component to update.
@@ -184,6 +188,7 @@ const UserDetails = props => {
 		//eslint-disable-next-line
 		[] /* This empty array tells useEffect to update only when a parameter in the array updates. If no parameter is supplied it runs only once.*/
 	)
+	
 
 	const {
 		name,
@@ -273,10 +278,7 @@ const UserDetails = props => {
 }
 
 UserDetails.propTypes = {
-	loading: PropTypes.bool.isRequired,
-	userDetails: PropTypes.object.isRequired,
 	userRepos: PropTypes.array.isRequired,
-	getUserDetails: PropTypes.func.isRequired,
 	getUserRepos: PropTypes.func.isRequired
 }
 export default UserDetails

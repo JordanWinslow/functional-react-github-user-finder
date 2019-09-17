@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
+import GithubContext from "../../context/github/githubContext"
 
 /******** STYLING ********/
 const FormContainer = styled.form`
@@ -37,7 +38,6 @@ const SubmitButton = styled.input`
 	border-radius: 15px;
 	cursor: pointer;
 	transition-duration: 0.2s;
-
 	:hover {
 		transform: translateY(-1px);
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
@@ -60,7 +60,6 @@ const ClearButton = styled.button`
 	transition-duration: 0.2s;
 	border-radius: 15px;
 	cursor: pointer;
-
 	:hover {
 		transform: translateY(-1px);
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
@@ -69,6 +68,7 @@ const ClearButton = styled.button`
 
 const Search = props => {
 	/*** EVENT HANDLERS & STATE ***/
+	const githubContext = useContext(GithubContext)
 	const [searchText, setSearchText] = useState("")
 
 	const onChange = e => {
@@ -79,7 +79,7 @@ const Search = props => {
 		if (searchText === "") {
 			props.setAlert("Please enter some text before searching 😸", "danger")
 		} else {
-			props.userSearch(searchText)
+			githubContext.userSearch(searchText)
 			setSearchText("")
 		}
 	}
@@ -98,8 +98,8 @@ const Search = props => {
 				onChange={onChange}
 			/>
 			<SubmitButton type="submit" value="🔍Search"></SubmitButton>
-			{props.clearUsersButton && (
-				<ClearButton type="button" onClick={clearUsers}>
+			{githubContext.users.length > 0 && (
+				<ClearButton type="button" onClick={githubContext.clearUsers}>
 					Clear
 				</ClearButton>
 			)}
@@ -109,9 +109,6 @@ const Search = props => {
 }
 
 Search.propTypes = {
-	userSearch: PropTypes.func.isRequired,
-	clearUsers: PropTypes.func.isRequired,
-	clearUsersButton: PropTypes.bool.isRequired,
 	setAlert: PropTypes.func.isRequired
 }
 
