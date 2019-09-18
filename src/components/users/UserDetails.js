@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react"
-import PropTypes from "prop-types"
+import React, { Fragment, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import spinnerImage from "../layout/spinner.gif"
@@ -175,20 +174,25 @@ const Badge = styled.div`
 
 const UserDetails = props => {
 	const githubContext = useContext(GithubContext)
-	const { getUserDetails, userDetails, loading } = githubContext
+	const {
+		getUserDetails,
+		userDetails,
+		getUserRepos,
+		userRepos,
+		loading
+	} = githubContext
 
 	useEffect(
 		() => {
 			// When we run "getUserDetails" or "getUserRepos" they cause the component to update.
 			// Whenever a component updates, it runs useEffect, creating an infinite loop.
 			// Therefore we must supply a configuration array as a parameter.
-			props.getUserDetails(props.match.params.login) // "match.params" grabs the user name from the URL and is an object of React Router
-			props.getUserRepos(props.match.params.login)
+			getUserDetails(props.match.params.login) // "match.params" grabs the user name from the URL and is an object of React Router
+			getUserRepos(props.match.params.login)
 		},
 		//eslint-disable-next-line
 		[] /* This empty array tells useEffect to update only when a parameter in the array updates. If no parameter is supplied it runs only once.*/
 	)
-	
 
 	const {
 		name,
@@ -204,12 +208,12 @@ const UserDetails = props => {
 		public_repos,
 		public_gists,
 		hireable
-	} = props.userDetails // destructure the API returned object into keys/values
+	} = userDetails // destructure the API returned object into keys/values
 
-	if (props.loading) return <Spinner src={spinnerImage} alt="Loading..." />
+	if (loading) return <Spinner src={spinnerImage} alt="Loading..." />
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<ReturnButton>
 				<Link to="/">Back to Search</Link>
 			</ReturnButton>
@@ -225,33 +229,33 @@ const UserDetails = props => {
 				</BasicInfo>
 				<ExtendedInfo>
 					{bio && (
-						<React.Fragment>
+						<Fragment>
 							<h3>Bio:</h3>
 							<p>{bio}</p>
-						</React.Fragment>
+						</Fragment>
 					)}
 					<br />
 					<ul>
 						{login && (
-							<React.Fragment>
+							<Fragment>
 								<li>
 									<b>Username:</b> {login}
 								</li>
-							</React.Fragment>
+							</Fragment>
 						)}
 						{company && (
-							<React.Fragment>
+							<Fragment>
 								<li>
 									<b>Company:</b> {company}
 								</li>
-							</React.Fragment>
+							</Fragment>
 						)}
 						{blog && (
-							<React.Fragment>
+							<Fragment>
 								<li>
 									<b>Website:</b> <a href={`https://${blog}`}>{blog}</a>
 								</li>
-							</React.Fragment>
+							</Fragment>
 						)}
 					</ul>
 				</ExtendedInfo>
@@ -272,13 +276,9 @@ const UserDetails = props => {
 				</BadgeContainer>
 			</UserModal>
 			<br />
-			<Repos repos={props.userRepos} />
-		</React.Fragment>
+			<Repos repos={userRepos} />
+		</Fragment>
 	)
 }
 
-UserDetails.propTypes = {
-	userRepos: PropTypes.array.isRequired,
-	getUserRepos: PropTypes.func.isRequired
-}
 export default UserDetails

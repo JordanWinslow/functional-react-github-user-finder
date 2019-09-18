@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import styled from "styled-components"
-import PropTypes from "prop-types"
 import GithubContext from "../../context/github/githubContext"
+import AlertContext from "../../context/alert/alertContext"
 
 /******** STYLING ********/
 const FormContainer = styled.form`
@@ -69,6 +69,10 @@ const ClearButton = styled.button`
 const Search = props => {
 	/*** EVENT HANDLERS & STATE ***/
 	const githubContext = useContext(GithubContext)
+	const { userSearch, users, clearUsers } = githubContext
+	const alertContext = useContext(AlertContext)
+	const { setAlert } = alertContext
+
 	const [searchText, setSearchText] = useState("")
 
 	const onChange = e => {
@@ -77,15 +81,11 @@ const Search = props => {
 	const onSearch = text => {
 		text.preventDefault() // to prevent page reload on submit & to allow us to store the value to a variable
 		if (searchText === "") {
-			props.setAlert("Please enter some text before searching 😸", "danger")
+			setAlert("Please enter some text before searching 😸", "danger")
 		} else {
-			githubContext.userSearch(searchText)
+			userSearch(searchText)
 			setSearchText("")
 		}
-	}
-	const clearUsers = () => {
-		setSearchText("")
-		props.clearUsers()
 	}
 
 	return (
@@ -98,18 +98,14 @@ const Search = props => {
 				onChange={onChange}
 			/>
 			<SubmitButton type="submit" value="🔍Search"></SubmitButton>
-			{githubContext.users.length > 0 && (
-				<ClearButton type="button" onClick={githubContext.clearUsers}>
+			{users.length > 0 && (
+				<ClearButton type="button" onClick={clearUsers}>
 					Clear
 				</ClearButton>
 			)}
 			{/*WE MUST MAKE BUTTON type="button" OR ELSE IT WILL SUBMIT THE FORM AGAIN, EVEN WITH NO onSubmit DECLARATION!*/}
 		</FormContainer>
 	)
-}
-
-Search.propTypes = {
-	setAlert: PropTypes.func.isRequired
 }
 
 export default Search

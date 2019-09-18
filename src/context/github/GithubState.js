@@ -23,12 +23,10 @@ const GithubState = props => {
 
 	// ------- METHODS ------- //
 	const userSearch = async textInput => {
-		setUsers([])
 		setLoading()
-
 		const githubAPI = await axios.get(
 			`https://api.github.com/search/users?q=${textInput}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-		)
+			)
 
 		dispatch({ type: SEARCH_USERS, payload: githubAPI.data.items })
 	}
@@ -41,7 +39,13 @@ const GithubState = props => {
 		dispatch({ type: GET_USER, payload: githubAPI.data })
 	}
 
-	// GET USER REPOS
+	const getUserRepos = async username => {
+		setLoading()
+		const githubAPI = await axios.get(
+			`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+		)
+		dispatch({ type: GET_REPOS, payload: githubAPI.data })
+	}
 
 	const clearUsers = () => dispatch({ type: CLEAR_USERS })
 
@@ -58,6 +62,7 @@ const GithubState = props => {
 				// METHODS
 				userSearch,
 				getUserDetails,
+				getUserRepos,
 				clearUsers
 			}}
 		>
