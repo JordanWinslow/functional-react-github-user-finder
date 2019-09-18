@@ -81,7 +81,7 @@ const Search = props => {
 	const onSearch = text => {
 		text.preventDefault() // to prevent page reload on submit & to allow us to store the value to a variable
 		if (searchText === "") {
-			setAlert("Please enter some text before searching 😸", "danger")
+			setAlert("Please enter some text before searching 😸", "danger") // "danger is defined in App.css. Yes, this is hacky but I'm experimenting with different theme management possibilities"
 		} else {
 			userSearch(searchText)
 			setSearchText("")

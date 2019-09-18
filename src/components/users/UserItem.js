@@ -30,7 +30,6 @@ const UserName = styled.h5`
 	justify-self: center;
 	cursor: default;
 `
-const StyledLink = styled(Link)``
 const DetailsButton = styled.div`
 	justify-self: center;
 	display: flex;
