@@ -13,12 +13,13 @@ https://functional-react-gitfinder.netlify.com/
 
 ### Detailed Description:
 <p>
-This project utilizes class-based React.js components with lifestyle methods, state management & higher order functions to dynamically render user profile information from the GitHub API onto a fully responsive CSS grid that is styled with styled-components and animated with CSS keyframes and modern transitional hover parameters.
+This project utilizes functional OOP & ditches class-based React.js components in favor of React Hooks, Context Management & higher order functions to dynamically render user profile information from the GitHub API onto a fully responsive CSS grid that is styled with styled-components and animated with CSS keyframes and modern transitional animations.
 </p>
-<p>
-I purposely used class-based React components in this project to demonstrate some of the known problems with class inheritance in JavaScript. While quick to load and (to my knowledge) bug-free, this code is unnecessarily bloated due to the limitations of class inheritance.
-  
-In this repository <strong>(coming soon)</strong> I leverage the full power of JavaScript's multi-paradigm capabilities along with modern react hooks and context management to demonstrate how much cleaner, more readable and maintainable the code can get by adopting a modern approach to inheritance and combining the good features of classical OOP with FP!</p>
+<p>  
+In this repository I leverage the full power of JavaScript's multi-paradigm capabilities along with modern react hooks and context management to demonstrate how much cleaner, more readable and maintainable the code can get by adopting a modern approach to inheritance and combining the good features of classical OOP with FP!
+
+To see what this same program looks like with class based React components and how much more bloated and hard to maintain the code becomes, take a look at this repo: <strong><a href="https://github.com/JordanWinslow/classical-react-github-user-finder">https://github.com/JordanWinslow/classical-react-github-user-finder</a></strong>
+</p>
 
 # Screenshots
 
