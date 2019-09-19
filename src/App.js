@@ -13,35 +13,6 @@ import AlertState from "./context/alert/AlertState"
 import ThemeProvider from "./context/theme/ThemeProvider"
 
 const App = () => {
-<<<<<<< HEAD
-  return (
-    <ThemeProvider>
-      <GithubState>
-        <AlertState>
-          <Router>
-            <Navbar />
-            {/*VIEW STYLE GUIDE WITH <StyleGuide />*/}
-            <Alert />
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <React.Fragment>
-                    <Search />
-                    <UserGrid />
-                  </React.Fragment>
-                )}
-              />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/user/:login" component={UserDetails} />
-            </Switch>
-          </Router>
-        </AlertState>
-      </GithubState>
-    </ThemeProvider>
-  )
-=======
 	return (
 		<GithubState>
 			<AlertState>
@@ -59,7 +30,6 @@ const App = () => {
 			</AlertState>
 		</GithubState>
 	)
->>>>>>> 2822b2e186d9a87c067ced24a68819d3eab4ca4b
 }
 
 export default App
