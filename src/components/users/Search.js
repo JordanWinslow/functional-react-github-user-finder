@@ -75,20 +75,6 @@ const Search = props => {
 
   const [searchText, setSearchText] = useState("")
 
-<<<<<<< HEAD
-  const onChange = e => {
-    setSearchText(e.target.value) // e.target.value is the captured user keystrokes
-  }
-  const onSearch = text => {
-    text.preventDefault() // to prevent page reload on submit & to allow us to store the value to a variable
-    if (searchText === "") {
-      setAlert("Please enter some text before searching 😸", "danger")
-    } else {
-      userSearch(searchText)
-      setSearchText("")
-    }
-  }
-=======
 	const onChange = e => {
 		setSearchText(e.target.value) // e.target.value is the captured user keystrokes
 	}
@@ -101,7 +87,6 @@ const Search = props => {
 			setSearchText("")
 		}
 	}
->>>>>>> 2822b2e186d9a87c067ced24a68819d3eab4ca4b
 
   return (
     <FormContainer onSubmit={onSearch}>

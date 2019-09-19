@@ -216,7 +216,12 @@ const UserDetails = props => {
   return (
     <Fragment>
       <Link to="/">
-        <ReturnButton>👈 Back to Search</ReturnButton>
+        <ReturnButton>
+          <span role="img" aria-label="backbutton">
+            👈
+          </span>{" "}
+          Back to Search
+        </ReturnButton>
       </Link>
       <UserModal>
         <BasicInfo>

@@ -1,14 +1,8 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-<<<<<<< HEAD
-import ThemeProvider from "../../context/theme/ThemeProvider"
-// COLOR THEME:
-// http://paletton.com/#uid=237050ktmC4MF7KJnfqatSW2IHf
-=======
 import Theme from "../../context/ThemeProvider" // for demonstration purposes only
 
->>>>>>> 2822b2e186d9a87c067ced24a68819d3eab4ca4b
 const gitHubLogo = (
 	<svg
 		width="60"
@@ -78,24 +72,6 @@ const NavigationHeader = styled.nav`
 `
 
 const Navbar = () => {
-<<<<<<< HEAD
-  const themeProvider = useContext(ThemeProvider)
-  console.log(`Theme: ${themeProvider}`)
-  return (
-    <NavigationHeader>
-      {gitHubLogo}
-      <h1 id="logo">GitFinder</h1>
-      <ul id="navItems">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-    </NavigationHeader>
-  )
-=======
 	return (
 		<Theme.Consumer>
 			{theme => {
@@ -116,7 +92,6 @@ const Navbar = () => {
 			}}
 		</Theme.Consumer>
 	)
->>>>>>> 2822b2e186d9a87c067ced24a68819d3eab4ca4b
 }
 
 export default Navbar

@@ -10,26 +10,25 @@ import NotFound from "./components/pages/404"
 // import StyleGuide from "./components/StyleGuide"
 import GithubState from "./context/github/GithubState"
 import AlertState from "./context/alert/AlertState"
-import ThemeProvider from "./context/theme/ThemeProvider"
 
 const App = () => {
-	return (
-		<GithubState>
-			<AlertState>
-				<Router>
-					<Navbar />
-					{/*VIEW STYLE GUIDE WITH <StyleGuide />*/}
-					<Alert />
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/about" component={About} />
-						<Route exact path="/user/:login" component={UserDetails} />
-						<Route component={NotFound} />
-					</Switch>
-				</Router>
-			</AlertState>
-		</GithubState>
-	)
+  return (
+    <GithubState>
+      <AlertState>
+        <Router>
+          <Navbar />
+          {/*VIEW STYLE GUIDE WITH <StyleGuide />*/}
+          <Alert />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/user/:login" component={UserDetails} />
+            <Route component={NotFound} />
+          </Switch>
+        </Router>
+      </AlertState>
+    </GithubState>
+  )
 }
 
 export default App
