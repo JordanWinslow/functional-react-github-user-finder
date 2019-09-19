@@ -1,4 +1,4 @@
-# Fully Responsive, Dynamic React.js App With CSS Animations
+# Fully Responsive, Dynamic React.js App With Hooks, Context Management & CSS Animations
 https://functional-react-gitfinder.netlify.com/
 ### Key features: 
 <ul>
