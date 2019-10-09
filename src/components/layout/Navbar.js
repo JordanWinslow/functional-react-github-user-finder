@@ -19,7 +19,6 @@ const gitHubLogo = (
   </svg>
 )
 const NavigationHeader = styled.nav`
-  padding-left: 6px;
   background: ${props => props.background};
   height: 70px;
   width: 100vw;
@@ -71,7 +70,6 @@ const NavigationHeader = styled.nav`
     color: #00291c;
   }
   @media (max-width: 450px) {
-    padding: 0 7vw 0 0;
     a {
       padding: 0 10px;
       font-size: 1rem;
