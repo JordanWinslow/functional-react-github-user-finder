@@ -8,7 +8,6 @@ body {
   font-family: "Karla", sans-serif;
   font-size: 20px;
   letter-spacing: 1.5px;
-  overflow: hidden;
 }
 button {
   outline: none;
