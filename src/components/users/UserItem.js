@@ -28,6 +28,7 @@ const UserName = styled.h5`
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
   justify-self: center;
+  align-self: center;
   cursor: default;
 `
 const DetailsButton = styled.div`

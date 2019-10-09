@@ -15,8 +15,8 @@ let githubClientId
 let githubClientSecret
 
 if (process.env.NODE_ENV !== "production") {
-  githubClientId = process.env.REACT_APP.GITHUB_CLIENT_ID
-  githubClientSecret = process.env.REACT_APP.GITHUB_CLIENT_SECRET
+  githubClientId = "e0f3d789000dc0169bd2"
+  githubClientSecret = "f902419955380c45eb1871263f5130223c6d4d80"
 } else {
   githubClientId = process.env.GITHUB_CLIENT_ID
   githubClientSecret = process.env.GITHUB_CLIENT_SECRET
