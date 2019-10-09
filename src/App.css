@@ -8,6 +8,7 @@ body {
   font-family: "Karla", sans-serif;
   font-size: 20px;
   letter-spacing: 1.5px;
+  overflow: hidden;
 }
 button {
   outline: none;
@@ -70,7 +71,7 @@ ul {
 /* END ALERT STYLING */
 
 @media (max-width: 600px) {
-	h1 {
-		font-size: 30px;
-	}
+  h1 {
+    font-size: 30px;
+  }
 }
