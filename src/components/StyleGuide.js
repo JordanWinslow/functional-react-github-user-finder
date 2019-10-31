@@ -1,3 +1,5 @@
+/*Interesting way to quickly demonstrate all base styles for typography, etc.*/
+
 import React from "react"
 
 const StyleGuide = () => {
